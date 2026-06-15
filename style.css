@@ -1,0 +1,400 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('assets/Gilroy%20Extra%20Bold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heading Now';
+    src: url('assets/Heading%20Now%2086%20Bold%20Italic.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #202020;
+    color: #ffffff;
+    font-family: 'Gilroy', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    position: relative;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.slider-overlay {
+    position: absolute;
+    inset: 0;
+    background: #202020;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+header {
+    padding-top: 30px;
+    margin-bottom: 40px;
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.logo-img,
+.f-mark-img {
+    display: inline-block;
+    width: 32px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.f-mark-img {
+    width: 60px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.text-content {
+    flex: 0 0 500px;
+    position: relative;
+    z-index: 20;
+}
+
+.f-mark {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 0 0 30px 0;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-family: 'Heading Now', sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0 0 40px 0;
+    color: #f0f0f0;
+    letter-spacing: 1px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 16px 36px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    color: #ffffff;
+    font-family: 'Heading Now', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-content {
+    position: absolute;
+    right: -250px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    z-index: 0;
+}
+
+.launcher-container {
+    width: 100%;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.launcher-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.006);
+}
+
+.bot-img {
+    position: absolute;
+    left: -80px;
+    top: 40%;
+    width: 140px;
+    z-index: 5;
+    animation: float 4s ease-in-out infinite;
+    background-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(180, 100, 255, 0.4));
+    mix-blend-mode: lighten;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* About Our Team Section */
+.about-team {
+    margin-top: 60px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Heading Now', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.team-cluster {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    margin: 0 auto 80px auto;
+}
+
+.cluster-avatar {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Specific avatar styling for exact image fits */
+.bg-purple img { width: 100%; height: 100%; object-fit: cover; }
+.bg-pink img { width: 100%; height: 100%; object-fit: cover; }
+.bg-dark img { width: 100%; height: 100%; object-fit: cover; }
+.bg-sand img { width: 100%; height: 100%; object-fit: cover; }
+
+.avatar-large {
+    width: 170px;
+    height: 170px;
+}
+
+.avatar-medium {
+    width: 110px;
+    height: 110px;
+}
+
+.avatar-small {
+    width: 75px;
+    height: 75px;
+}
+
+.bg-purple { background-color: #c9c0d6; }
+.bg-orange { background-color: #f7c56b; }
+.bg-sand { background-color: #dcd3c6; }
+.bg-dark { background-color: #1a1a1a; }
+.bg-pink { background-color: #e6a8b1; }
+
+.text-avatar {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.cluster-avatar.text-avatar {
+    font-size: 48px;
+}
+
+.team-values {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-values h4 {
+    font-family: 'Heading Now', sans-serif;
+    font-size: 26px;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.team-values p {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #7a7a7a;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #4a4a4a;
+    margin: 0 auto 60px auto;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+.member {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.member-avatar.text-avatar {
+    font-size: 52px;
+}
+
+.member h5 {
+    font-family: 'Heading Now', sans-serif;
+    font-size: 17px;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.member p {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 13px;
+    color: #8c8c8c;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 800;
+}
+
+.disclaimer {
+    text-align: left;
+    margin-top: 25px;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 12px;
+    color: #666;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.disclaimer p {
+    margin: 0;
+}
+
+/* Fetcher on about team slide */
+.bot-img-about-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.bot-img-about {
+    width: 60px;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(180, 100, 255, 0.4));
+    mix-blend-mode: lighten;
+}
+
+/* Bottom image */
+.bottom-img {
+    text-align: center;
+    padding: 40px 0 60px;
+    flex-shrink: 0;
+}
+
+.bottom-img img {
+    max-width: 100%;
+    height: auto;
+}

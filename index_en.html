@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch.js</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="fetch.js" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+</head>
+<body>
+    <div class="container">
+        <div class="slider" id="slider">
+            <div class="slider-overlay"></div>
+            <div class="slide active" data-index="0">
+                <header>
+                    <div class="logo"><img src="assets/fetchjs_logo_nobg.png" alt="fetch.js logo" class="logo-img"> etch.js</div>
+                </header>
+
+                <main>
+                    <div class="text-content">
+                        <div class="f-mark"><img src="assets/fetchjs_logo_nobg.png" alt="fetch.js logo" class="f-mark-img"></div>
+                        <h1>Meet new Epic<br>Games Launcher* by<br>fetch.js</h1>
+                        <h2>NEW SUPERCHARGED LAUNCHER<br>WITH AI</h2>
+                        <button class="download-btn">DOWNLOAD UPDATER</button>
+                        <div class="disclaimer">
+                            <p>* Это только работа для конкурса ССН на YouTube канале НЕДОХАКЕРЫ Lite</p>
+                        </div>
+                    </div>
+
+                    <div class="image-content">
+                        <img src="assets/Fetcher2_nobg.png" alt="AI Bot" class="bot-img">
+                        <div class="launcher-container">
+                            <img src="assets/Epic-Games-Launcher.jpg" alt="Epic Games Launcher UI" class="launcher-img">
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <div class="slide" data-index="1">
+                <header>
+                    <div class="logo"><img src="assets/fetchjs_logo_nobg.png" alt="fetch.js logo" class="logo-img">etch.js</div>
+                </header>
+
+                <section class="about-team">
+                    <h3 class="section-title">ABOUT OUR TEAM
+                        <div class="bot-img-about-wrap">
+                            <img src="assets/Fetcher2_nobg.png" alt="AI Bot" class="bot-img-about">
+                        </div>
+                    </h3>
+                    
+                    <div class="team-cluster">
+                        <div class="cluster-avatar avatar-large bg-purple" style="top: 0; left: 20%; z-index: 1;">
+                            <img src="assets/yogitomymmc.jpg" alt="Yogitomymmc">
+                        </div>
+                        <div class="cluster-avatar avatar-medium bg-pink" style="top: 55%; left: 22%; z-index: 2;">
+                            <img src="assets/waruk.avif" alt="waruk">
+                        </div>
+                        <div class="cluster-avatar avatar-medium bg-dark" style="top: 38%; left: 38%; z-index: 3;">
+                            <img src="assets/specer.avif" alt="Specer">
+                        </div>
+                        <div class="cluster-avatar avatar-small bg-sand" style="top: 22%; left: 50%; z-index: 4;">
+                            <img src="assets/saivan.avif" alt="Saivan">
+                        </div>
+                        <div class="cluster-avatar avatar-medium bg-orange text-avatar" style="top: 55%; left: 52%; z-index: 5;">
+                            Л
+                        </div>
+                    </div>
+                    
+                    <div class="team-values">
+                        <h4>WE ARE LIKE ONE FRIENDLY FAMILY</h4>
+                        <p>In our team, the most important thing<br>is friendship and respect.</p>
+                    </div>
+                    
+                    <div class="separator"></div>
+                    
+                    <div class="team-members">
+                        <div class="member">
+                            <div class="member-avatar bg-purple"><img src="assets/yogitomymmc.jpg" alt="Yogitomymmc"></div>
+                            <h5>YOGITOMYMMC</h5>
+                            <p>Founder of Fetch.js,<br>website and program<br>designer, and program<br>developer</p>
+                        </div>
+                        <div class="member">
+                            <div class="member-avatar bg-orange text-avatar">Л</div>
+                            <h5>ALEXMOTU</h5>
+                            <p>One of the main<br>developers of the<br>program and<br>virus</p>
+                        </div>
+                        <div class="member">
+                            <div class="member-avatar bg-sand"><img src="assets/saivan.avif" alt="Saivan"></div>
+                            <h5>SAIVAN</h5>
+                            <p>One of the<br>developers of the<br>program</p>
+                        </div>
+                        <div class="member">
+                            <div class="member-avatar bg-dark"><img src="assets/specer.avif" alt="Specer"></div>
+                            <h5>SPECER</h5>
+                            <p>One of the virus<br>developers</p>
+                        </div>
+                        <div class="member">
+                            <div class="member-avatar bg-pink"><img src="assets/waruk.avif" alt="waruk"></div>
+                            <h5>waruk</h5>
+                            <p>One of the site and virus<br>developers</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="bottom-img">
+                    <img src="assets/fevent.png" alt="event">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var slides = document.querySelectorAll('.slide');
+            var overlay = document.querySelector('.slider-overlay');
+            var current = 0;
+            var locked = false;
+
+            function goToSlide(index) {
+                if (index < 0 || index >= slides.length || index === current) return;
+                if (locked) return;
+                locked = true;
+
+                overlay.style.opacity = '1';
+
+                setTimeout(function() {
+                    slides.forEach(function(s) { s.classList.remove('active'); });
+                    slides[index].classList.add('active');
+                    current = index;
+
+                    overlay.style.opacity = '0';
+
+                    setTimeout(function() {
+                        locked = false;
+                    }, 500);
+                }, 500);
+            }
+
+            document.addEventListener('wheel', function(e) {
+                if (locked) return;
+                if (e.deltaY > 0) goToSlide(current + 1);
+                else goToSlide(current - 1);
+            }, { passive: true });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowDown') { e.preventDefault(); goToSlide(current + 1); }
+                if (e.key === 'ArrowUp') { e.preventDefault(); goToSlide(current - 1); }
+            });
+        });
+    </script>
+</body>
+</html>
